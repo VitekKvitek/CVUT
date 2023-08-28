@@ -307,7 +307,7 @@ class FilesManipulaotr:
 
                     ssi_index = ssim(same_car_pixel_array[i], same_car_pixel_array[j])
                     
-                    if ssi_index >= 0.98 and not same_car[j] in car_copy_list:
+                    if ssi_index >= 0.95 and not same_car[j] in car_copy_list:
                         car_copy_list.append(same_car[j])
 
             for name in car_copy_list:
@@ -316,8 +316,8 @@ class FilesManipulaotr:
                         shutil.copy2(source_path, destination_path)
                         os.remove(source_path)
 
-TCCPD_test = FilesManipulaotr(r"D:\vita\car_data_set\resource\TCCPD_filtered_bbox_checked", #source
-                            r"D:\vita\car_data_set\resource\TCCPD_filtered_bbox_checked_duplicants", #destination
+TCCPD_test = FilesManipulaotr(r"D:\vita\car_data_set\resource\TCCPD_filtered_bbox_white_bg", #source
+                            r"D:\vita\car_data_set\resource\TCCPD_bbox_white_bg_duplicants", #destination
                             "TCCPD.csv") 
 
 TCCPD_test.check_duplicates()

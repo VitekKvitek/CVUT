@@ -2,7 +2,7 @@ import csv
 from tqdm import tqdm
 import os
 
-old_csv_file = "TCCD_bg.csv"
+old_csv_file = "TCCD_all_bg.csv"
 new_csv_file = "TCCD_all_bg.csv"
 source_folder = r"D:\vita\car_data_set\resource\TCCPD_filtered_bbox_checked"
 
@@ -65,4 +65,13 @@ def delete_nobg():
             csv_writer = csv.writer(csv_file, delimiter=",")
             csv_writer.writerow(row)
 
-delete_nobg()
+def add_column():
+    with open(old_csv_file, 'r') as csvfile:
+        csvreader = csv.reader(csvfile)
+        old_csv_list = list(csvreader)
+    for row in tqdm(old_csv_list):
+        row.append("")
+    with open(old_csv_file, mode="w", newline="") as csvfile:
+        csv_writer = csv.writer(csvfile, delimiter=",")
+        csv_writer.writerows(old_csv_list)
+add_column()
