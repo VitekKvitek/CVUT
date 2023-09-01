@@ -1,6 +1,5 @@
-# CVUT
+# Car data set
 My work on CVUT
-
 For now set around creating car datasets for machine learning
 
 bbox_YOLO.py - script for creating bbox anotation using YOLO v 5
